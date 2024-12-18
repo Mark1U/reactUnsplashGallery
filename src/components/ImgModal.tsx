@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { ImageItem } from "../interfaces/ImageItem";
 import {
   Dialog,
@@ -14,8 +14,19 @@ interface Props {
 
 const ImgModal = ({ img, open }: Props) => {
   const navigate = useNavigate();
+  const location = useLocation();
   return (
-    <Dialog open={open} onClose={() => navigate(-1)} className="relative z-10">
+    <Dialog
+      open={open}
+      onClose={() => {
+        if (location.key === "default") {
+          navigate("/");
+        } else {
+          navigate(-1);
+        }
+      }}
+      className="relative z-10"
+    >
       <DialogBackdrop
         transition
         className="fixed inset-0 bg-gray-500/75 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
