@@ -1,4 +1,3 @@
-
 export interface ImageItem {
     id: string
     slug: string
@@ -19,7 +18,7 @@ export interface ImageItem {
     liked_by_user: boolean
     current_user_collections: any[]
     sponsorship: any
-    topic_submissions: TopicSubmissions
+    topic_submissions: any
     asset_type: string
     premium: boolean
     plus: boolean
@@ -54,9 +53,6 @@ export interface Links {
     download_location: string
 }
 
-export interface TopicSubmissions {
-    archival?: Archival
-}
 
 export interface Archival {
     status: string
